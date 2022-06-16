@@ -20,6 +20,12 @@
   }
 }
 
+.bookform {
+  display: grid;
+  justify-content: center;
+
+
+}
 .body {
   display: grid;
   grid-template-columns: 1fr 1fr;
