@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import Bookform from './Bookform';
 import Book from './Books';
+import BookList from './Booklist';
 
 function App() {
 // UseState Go here
@@ -22,6 +23,8 @@ function App() {
 
     const updatedBooks = [...allBooks, book];
     setBooks(updatedBooks);
+
+    console.log(updatedBooks); // Your Array to be Looped
   }
 
 
@@ -49,7 +52,9 @@ function App() {
           <div id="preview">
             <p>Preview goes here</p>
             <Book 
-              title={title}/>
+              title={title}
+              author={author}
+              year={year}/>
           </div>
 
           <div id="filter-and-delete">
@@ -58,6 +63,8 @@ function App() {
 
           <div id="list-display">
             <p>Display List goes here</p>
+            <BookList 
+            />
           </div>
         </section>
         <footer>
