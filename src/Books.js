@@ -1,14 +1,15 @@
 import React from 'react';
 import './App.css';
 
-export default function Books(props) {
+export default function Book(props) {
   console.log(props);
   return (
     <>
       <div className="books-preview">
-        <h4 value={props.books.title}>Title</h4>
-        <h5 value={props.books.author}>Author</h5>
-        <p value={props.books.year}>Year</p>
+        <label value={props.title}>{props.title}</label>
+        {/* Continue from Here */}
+        <label value={props.author}>Author</label> 
+        <label value={props.year}>Year</label>
       </div>
     </>
   );

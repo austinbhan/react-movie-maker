@@ -23,8 +23,11 @@
 .bookform {
   display: grid;
   justify-content: center;
+}
 
-
+.books-preview {
+  display: flex;
+  flex-direction: column;
 }
 .body {
   display: grid;

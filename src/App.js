@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Bookform from './Bookform';
-import Books from './Books';
+import Book from './Books';
 
 function App() {
 // UseState Go here
@@ -48,8 +48,8 @@ function App() {
 
           <div id="preview">
             <p>Preview goes here</p>
-            <Books 
-              books = {allBooks}/>
+            <Book 
+              title={title}/>
           </div>
 
           <div id="filter-and-delete">
