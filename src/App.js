@@ -10,21 +10,21 @@ function App() {
   const [author, setAuthor] = useState('');
   const [year, setYear] = useState('');
 
-  const [allBooks, setBooks] = useState([]);
+  const [allBooks, setBooks] = useState([{
+    title: title,
+    author: author,
+    year: year
+  }]);
 
 // Functions Go Here
   function submitBook(e) {
     e.preventDefault();
-    const book = {
-      title: title,
+    const books = { title: title,
       author: author,
-      year: year
-    };
-
-    const updatedBooks = [...allBooks, book];
-    setBooks(updatedBooks);
-
-    console.log(updatedBooks); // Your Array to be Looped
+      year: year };
+    
+    const updatedBooks = [...allBooks, books];
+    setBooks(updatedBooks); //updateBooks is your data array 
   }
 
 
@@ -49,12 +49,13 @@ function App() {
             />
           </div>
 
-          <div id="preview">
+          <div className="book-preview">
             <p>Preview goes here</p>
             <Book 
-              title={title}
-              author={author}
-              year={year}/>
+              book={{ title: title, 
+                author: author,
+                year: year }}  
+            />
           </div>
 
           <div id="filter-and-delete">
@@ -64,6 +65,7 @@ function App() {
           <div id="list-display">
             <p>Display List goes here</p>
             <BookList 
+              books={allBooks}
             />
           </div>
         </section>

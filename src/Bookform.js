@@ -5,15 +5,15 @@ export default function Bookform({ submitBook, title, setTitle, author, setAutho
   return (
     <>
       <div className="book-form-container">
-        <form className="bookform" onSubmit={e => submitBook(e)}>
+        <form className="bookform" onSubmit={ submitBook }>
           <p>Title
-            <input value={title} onChange={e => setTitle(e.target.value)}></input>
+            <input value={title} onChange={e => setTitle(e.target.value)}/>
           </p>    
           <p>Author
-            <input value={author} onChange={e => setAuthor(e.target.value)}></input>
+            <input value={author} onChange={e => setAuthor(e.target.value)} />
           </p>
           <p>Year
-            <input value={year} onChange={e => setYear(e.target.value)}></input>
+            <input value={year} onChange={e => setYear(e.target.value)} />
           </p>
           <button>Submit</button>
         </form>

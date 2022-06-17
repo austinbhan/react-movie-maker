@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 
-export default function Book(props) {
+export default function Book({ book }) {
   return (
     <>
       <div className="book-preview">
-        <label value={props.title}>{props.title}</label>
-        <label value={props.author}>{props.author}</label> 
-        <label value={props.year}>{props.year}</label>
+        <h2>{book.title}</h2>
+        <h5>{book.author}</h5> 
+        <p>{book.year}</p>
       </div>
     </>
   );
