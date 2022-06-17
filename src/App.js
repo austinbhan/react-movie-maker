@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import Bookform from './Bookform';
-// import Books from './Books';
+import Books from './Books';
 
 function App() {
 // UseState Go here
@@ -9,17 +9,18 @@ function App() {
   const [author, setAuthor] = useState('');
   const [year, setYear] = useState('');
 
-  const [allbooks, setBooks] = useState([]);
+  const [allBooks, setBooks] = useState([]);
+
 // Functions Go Here
   function submitBook(e) {
     e.preventDefault();
     const book = {
-      title: { title },
-      author: { author },
-      year: { year }
+      title: title,
+      author: author,
+      year: year
     };
 
-    const updatedBooks = [...allbooks, book];
+    const updatedBooks = [...allBooks, book];
     setBooks(updatedBooks);
   }
 
@@ -47,7 +48,8 @@ function App() {
 
           <div id="preview">
             <p>Preview goes here</p>
-            {/* <Books /> */}
+            <Books 
+              books = {allBooks}/>
           </div>
 
           <div id="filter-and-delete">
