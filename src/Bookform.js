@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
 
-export default function Bookform({ submit, title, setTitle, author, setAuthor, year, setYear }) {
+export default function Bookform({ submitBook, title, setTitle, author, setAuthor, year, setYear }) {
   return (
     <>
       <div className="book-form-container">
-        <form className="bookform" onChange={e => submit(e.target.value)}>
+        <form className="bookform" onChange={e => submitBook(e.target.value)}>
           <p>Title
             <input value={title} onChange={e => setTitle(e.target.value)}></input>
           </p>    

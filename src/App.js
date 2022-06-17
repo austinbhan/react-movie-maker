@@ -1,12 +1,13 @@
 import './App.css';
-// import { useState } from 'react';
+import { useState } from 'react';
 import Bookform from './Bookform';
+import Books from './Books';
 
 function App() {
 // UseState Go here
-// const [title, setTitle] = useState('');
-// const [author, setAuthor] = useState('');
-// const [year, setYear] = useState('');
+  const [title, setTitle] = useState('');
+  const [author, setAuthor] = useState('');
+  const [year, setYear] = useState('');
 
 // Functions Go Here
 
@@ -20,11 +21,19 @@ function App() {
         <section className="body">
           <div id="input">
             <p>Inputs go here</p>
-            <Bookform />
+            <Bookform 
+              title={title}
+              setTitle={setTitle}
+              author={author}
+              setAuthor={setAuthor}
+              year={year}
+              setYear={setYear}
+            />
           </div>
 
           <div id="preview">
             <p>Preview goes here</p>
+            <Books />
           </div>
 
           <div id="filter-and-delete">
