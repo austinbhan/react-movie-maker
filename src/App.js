@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Bookform from './Bookform';
 import Book from './Books';
 import BookList from './Booklist';
@@ -16,7 +16,19 @@ function App() {
     year: year
   }]);
 
+  const [currentFilter, setFilter] = useState('');
+  const [filteredBooks, setFilteredBooks] = useState([]);
+
+  useEffect(() => {
+    const filteredBooks = allBooks.
+      filter(book =>
+        book.title.includes(currentFilter));
+    setFilteredBooks(filteredBooks);
+  }, [currentFilter, allBooks]);
+
 // Functions Go Here
+
+
   function submitBook(e) {
     e.preventDefault();
     const books = { title: title,
@@ -65,13 +77,16 @@ function App() {
           </div>
 
           <div id="filter-and-delete">
-            <p>Filter and delete buttons go here</p>
+            <p>Filter goes here</p>
+            <input value={currentFilter} onChange={(e) => setFilter(e.target.value)}/>
           </div>
 
           <div id="list-display">
             <p>Display List goes here</p>
             <BookList 
-              books={allBooks}
+              books={filteredBooks.length
+                ? filteredBooks
+                : allBooks}
               handleDeleteBook={handleDeleteBook}
             />
           </div>
