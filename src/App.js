@@ -27,6 +27,11 @@ function App() {
     setBooks(updatedBooks); //updateBooks is your data array 
   }
 
+  function handleDeleteBook(title) {
+    const index = allBooks.findIndex(book => book.title === title);
+    allBooks.splice(index, 1);
+    setBooks([...allBooks]);
+  }
 
 // Return Goes Here
   return (
@@ -52,7 +57,8 @@ function App() {
           <div className="book-preview">
             <p>Preview goes here</p>
             <Book 
-              book={{ title: title, 
+              book={{
+                title: title, 
                 author: author,
                 year: year }}  
             />
@@ -66,6 +72,7 @@ function App() {
             <p>Display List goes here</p>
             <BookList 
               books={allBooks}
+              handleDeleteBook={handleDeleteBook}
             />
           </div>
         </section>
