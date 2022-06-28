@@ -13,6 +13,7 @@
 .book-preview {
   display: flex;
   flex-direction: column;
+  background-color: lightgreen;
 }
 .body {
   display: grid;

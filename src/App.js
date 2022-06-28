@@ -19,15 +19,15 @@ function App() {
   const [currentFilter, setFilter] = useState('');
   const [filteredBooks, setFilteredBooks] = useState([]);
 
-  useEffect(() => {
-    const filteredBooks = allBooks.
-      filter(book =>
-        book.title.includes(currentFilter));
-    setFilteredBooks(filteredBooks);
+  useEffect(() => { // Run Handle Filter here (6/28/22)
+    function filter(string) {
+      const filteredBooks = allBooks.filter(book => book.title.includes(string));
+      setFilteredBooks(filteredBooks);
+    }
+    filter(currentFilter);
   }, [currentFilter, allBooks]);
-
-// Functions Go Here
-
+  
+  // Functions Go Here
 
   function submitBook(e) {
     e.preventDefault();
@@ -77,12 +77,18 @@ function App() {
           </div>
 
           <div id="filter-and-delete">
-            <p>Filter goes here</p>
+            <p>Filters</p>
+            <p>
+              {
+                filteredBooks.length < 1 ? 
+                  'Nothing Matches' : ''
+              }
+            </p>
             <input value={currentFilter} onChange={(e) => setFilter(e.target.value)}/>
           </div>
 
           <div id="list-display">
-            <p>Display List goes here</p>
+            Display List
             <BookList 
               books={filteredBooks.length
                 ? filteredBooks
