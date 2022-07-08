@@ -37,6 +37,10 @@ function App() {
     
     const updatedBooks = [...allBooks, books];
     setBooks(updatedBooks); //updateBooks is your data array 
+
+    setTitle('');
+    setAuthor('');
+    setYear('');
   }
 
   function handleDeleteBook(title) {
